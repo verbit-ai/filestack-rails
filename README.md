@@ -142,7 +142,10 @@ The form helper wraps the generic Pick element and adds the value of the returne
 ```erb
 <%= form_for @user do |f| %>
   <div>
-    <%= f.filestack_field :filepicker_url, 'Upload Your Avatar!',  pickerOptions: {'fromSources': 'facebook'}, id: 'unique-id', input_id: 'unique-input-id' %>
+    <%= f.filestack_field :filepicker_url, 'Upload Your Avatar!',  pickerOptions: {'fromSources': 'facebook', onOpen: 'myonOpenCB',onClose: 'myonCloseCB',
+                              onFileUploadFinished: 'myonFileUploadFinishedCB',
+                              onFileSelected: 'myonFileSelectedCB',
+                              onUploadStarted: 'myonUploadStarted'}, id: 'unique-id', input_id: 'unique-input-id' %>
   </div>
 
   <%= f.submit %>
