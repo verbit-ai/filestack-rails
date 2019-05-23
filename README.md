@@ -139,7 +139,7 @@ url = data.filesUploaded[0].url
 ### Filestack Form Helper
 The form helper wraps the generic Pick element and adds the value of the returned file to an invisible text element, in order to attach to the form. It accepts the same options as the Pick element and renders the same button.
 
-the `callback` option is unique to `filestack_field` and it represented the callback function you want to invoke when `onUploadDone` callback is invoced. this callback holds that data of the uploaded files.
+the `callback` option is unique to `filestack_field` and it represented the callback function you want to invoce when `onUploadDone` callback is invoked. this callback holds that data of the uploaded files.
 ```erb
 <%= form_for @user do |f| %>
   <div>
