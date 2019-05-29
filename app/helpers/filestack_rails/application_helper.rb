@@ -12,8 +12,8 @@ module FilestackRails
 
     def filestack_js_init_tag
       client_name, apikey = get_client_and_api_key
-      signature_and_policy = get_policy_and_signature_string
-      javascript_string = "var #{client_name} = filestack.init('#{apikey}', #{signature_and_policy}, '#{cname}');"
+      client_options = get_client_options
+      javascript_string = "var #{client_name} = filestack.init('#{apikey}', #{client_options});"
       javascript_tag javascript_string
     end
 
@@ -93,10 +93,19 @@ module FilestackRails
       return [signature, policy]
     end
 
+    def get_client_options
+      signature_and_policy = get_policy_and_signature_string
+      client_options = '{sessionCache: true'
+      client_options << ", security: #{signature_and_policy}" unless signature_and_policy.blank?
+      client_options << ", cname: '#{cname}'" unless cname.blank?
+      client_options << '}'
+      client_options
+    end
+
     def get_policy_and_signature_string
       signature, policy = get_policy_and_signature
       return "{'signature': '#{signature}', 'policy': '#{policy}'}" if policy && signature
-      return "''"
+      return ''
     end
   end
 end
