@@ -16,11 +16,12 @@ Rails SDK for Filestack API and content management system.
 
 Note that the [Filestack::Ruby](https://github.com/filestack/filestack-ruby/) dependency has been updated to no longer interfere with namespace. However, if you were using that dependency in your Rails application, you will need to change any `Client` and `Filelink` class declarations to `FilestackClient` and `FilestackFilelink`, as per documented [here](https://github.com/filestack/filestack-ruby/blob/master/README.md).
 
-## Verbit overview
+## Verbit Forking overview
 Ther reason this gem was forked is that it did not support any of the new filepicker callbacks to interact with.
-Our forked version contains changes so that filestack_picker_element could receive options for additional callbacks
-the currently supported callbacks are onOpen, onClose, onFileUploadFinished, onFileSelected, onUploadStarted.
+Our forked version contains changes so that `filestack_picker_element` could receive options for additional callbacks
+the currently supported callbacks are `onOpen`, `onClose`, `onFileUploadFinished`, `onFileSelected`, `onUploadStarted`.
 There are more callbacks avaiable by the Filestack Javascript SDK, but did not implement them as they were not needed at the moment.
+more details on additional callbacks in: https://www.filestack.com/docs/concepts/pickers/web/#callbacks
 
 ## Overview
 
