@@ -18,9 +18,10 @@ Note that the [Filestack::Ruby](https://github.com/filestack/filestack-ruby/) de
 
 ## Verbit Forking overview
 Ther reason this gem was forked is that it did not support any of the new filepicker callbacks to interact with.
-Our forked version contains changes so that `filestack_picker_element` could receive options for additional callbacks
-the currently supported callbacks are `onOpen`, `onClose`, `onFileUploadFinished`, `onFileSelected`, `onUploadStarted`.
-There are more callbacks avaiable by the Filestack Javascript SDK, but did not implement them as they were not needed at the moment.
+Our forked version contains changes so that `filestack_picker_element` could receive options for additional callbacks.
+
+the new supported callbacks are `onOpen`, `onClose`, `onFileUploadFinished`, `onFileSelected`, `onUploadStarted`.
+There are more callbacks avaiable by the Filestack Javascript SDK, but we did not implement them as they were not needed at the moment.
 more details on additional callbacks in: https://www.filestack.com/docs/concepts/pickers/web/#callbacks
 
 ## Overview
