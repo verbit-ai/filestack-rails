@@ -1,5 +1,8 @@
 # Changelog
 
+## 4.0.4 (June 17, 2019)
+- Fix bug related to using Filestack security mode
+
 ## 4.0.3 (March 25, 2019)
 - Fix gem version
 

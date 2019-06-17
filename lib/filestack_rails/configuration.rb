@@ -1,6 +1,6 @@
 module FilestackRails
   class Configuration
-    attr_accessor :api_key, :client_name, :secret_key, :security, :expiry, :app_secret, :cname, :version
+    attr_accessor :api_key, :client_name, :secret_key, :expiry, :app_secret, :cname, :version
 
     def api_key
       @api_key or raise "Set config.filestack_rails.api_key"
@@ -19,11 +19,15 @@ module FilestackRails
     end
 
     def security=(security_options = {})
-      if @app_secret.nil?
-        raise 'You must have secret key to use security'
-      end
-      @security = FilestackSecurity.new(@app_secret, options: security_options)
+      raise 'You must have secret key to use security' if @app_secret.nil?
+
+      @security_options = security_options
+      FilestackSecurity.new(@app_secret, options: security_options)
     end
 
+    def security
+      raise 'You must have secret key to use security' if @app_secret.nil?
+      FilestackSecurity.new(@app_secret, options: @security_options || {})
+    end
   end
 end
